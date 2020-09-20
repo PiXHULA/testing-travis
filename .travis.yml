@@ -1,0 +1,14 @@
+language: java
+install: skip
+os: linux
+jdk: openjdk8
+deploy:
+  provider: heroku
+  api_key:
+    secure:
+  app: testing-travis
+  on:
+    repo: testing-travis
+  scipt:
+    - chmod +x ./gradlew
+    - ./gradlew clean build
