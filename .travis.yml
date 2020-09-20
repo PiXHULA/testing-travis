@@ -5,7 +5,7 @@ jdk: openjdk11
 deploy:
   provider: heroku
   api_key:
-    secure:
+    secure: 3aea5592-fc9e-4ed6-8522-176b745bfaaa
   app: testing-travis
   on:
     repo: testing-travis
