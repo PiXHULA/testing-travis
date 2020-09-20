@@ -5,7 +5,7 @@ jdk: openjdk11
 deploy:
   provider: heroku
   api_key:
-    secure: 3aea5592-fc9e-4ed6-8522-176b745bfaaa
+    secure: 733d9986-78b3-4f96-a82d-636409400e13
   app: stormy-garden-18192
   on:
     repo: PiXHULA/testing-travis
