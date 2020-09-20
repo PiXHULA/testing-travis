@@ -6,9 +6,9 @@ deploy:
   provider: heroku
   api_key:
     secure: 3aea5592-fc9e-4ed6-8522-176b745bfaaa
-  app: testing-travis
+  app: stormy-garden-18192
   on:
-    repo: https://github.com/PiXHULA/testing-travis
+    repo: https://git.heroku.com/stormy-garden-18192.git
   scipt:
     - chmod +x ./gradlew
     - ./gradlew clean build
