@@ -9,6 +9,15 @@ deploy:
   app: stormy-garden-18192
   on:
     repo: PiXHULA/testing-travis
-  scipt:
-  - chmod +x ./gradlew
+addons:
+  sonarcloud:
+    organization: "pixhula"
+    token:
+      secure: "**************************"
+script:
+  - "chmod +x ./gradlew"
   - "./gradlew clean build"
+  - "./gradlew sonarqube"
+env:
+  global:
+    secure: ssRTLO2UtEOOuogvx8fiZYD5YcawdLGGh6mKOgqjAnfeM1g90awrkw9HmrzI4/kfMyvTmAqzq/qdN3kdv9eGRLttBOV69EbHRaWBm9TtK92GPfXiuNaD4QOXW62QT0whloh/IrVOcEy5Mu9KgtSzCX//3nsl2k5TFNWe84t3U7BnN7QNIpApbPM4bFKbAhWPNee5OAJK8U+LZYJAU1zDn2OAy2MFWZW/8yDu/+SYl48yrm39cOZZTulLF9wo0picyHNRLx+LOiBg0H52LVw+ZD11scOq/Is3mSTjeMzJK58hu5sQqIe5ftcOi7BJbFrUwi00Lo1a9vYzvR9oeh5SME8lyclhuroty/i4CqgYqRReEfbyfdvs6Ecfo1pECQ3y+4duu73rVXLt3zVDlLCdrEx8hAFFOVCACodgwBnACNcQP0xOgPtsv0ZUqAuMFSOf103pn7u0cCWVD0Bcny2/fcS4ozQBUFlgUnA72BGa61NCLP7XRiOfnXz9deMg8u3uTv4C3b6v+fh2L6CqVaXe3t1fI0DjnZ0WV9v/uboO0QppNTZrJvv9Xc6UWXlavZ1JXXE9zchaPGMnpPI8SBas4/iZnuwWgb4nDk7XTiQ/smi+TOo22jSrZKVHtbtVTIlM/u2tg4hYDaZidImD1zLVWXywSKmKJ0SqZ976dgLc+1o=
