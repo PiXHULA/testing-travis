@@ -1,15 +1,14 @@
 language: java
 install: skip
 os: linux
-jdk: openjdk11
+jdk: openjdk14
 deploy:
   provider: heroku
   api_key:
-    secure: 733d9986-78b3-4f96-a82d-636409400e13
+    secure: Uci6yJx4W5w2GpFd7XnexFgc0uWmJ+XfxoTydZThmpx7Ig7O5enVaOOLyRT75yq3WxcTcuT+wNC/mT1V8F5yeYkhFvuF2dcnFEygz59OOuevMYS6mmFIHZ3o2DKmDfcX8UdsffLova1h9oIZbR2rSRfHREAG/FLn/Ym8fnJfiEe7QHOixZehYNs2cFVb5mrPHnmw9+3DrWxcIvmORpKH8sMsaWDu2gnLoXoXyykx3Qscw7mwyxr++Z8GW0xjBRY7n7MOMg4iBBwMaN70yK9ZmsYLFgWtGt32WnR8vSaY73l/qMMe6QBidgG2GYiskLV/uDf+DhHngR1eQf8KS/eAEe/vHXLyZ4WDJgfIUmQhQYurFA3W+Eq/tTMV3oR8EkDGXqyVbUVi5J473mUsRsahUEA0XmM/UizkX0Ze/JyUM8M60J3kTjkRfBEt6RKBOc2yN0P+KeAD174rp7S/qqgLVmtDTQtu/72xv99T8CqdTKnLg0P4jeWuZS9E4CzLsqOByi2u7Ytjir+ycAwl9L87876bacU+g+xdOKQAZ2QMRkO4hXnFpm/Yb6JV2jT34dFtBBOXcBXGKIVCt6JWzqmyPmKKmxdifhMh6WfH5j1zfmTK67D+Zcf3Cke6SDaxwY7icewYlr+2jhJ8mUyZ58whSggAyn85sJWrU4dfs/UHVPw=
   app: stormy-garden-18192
   on:
     repo: PiXHULA/testing-travis
   scipt:
-    - travis encrypt 733d9986-78b3-4f96-a82d-636409400e13 --add deploy.api_key --org
-    - chmod +x ./gradlew
-    - ./gradlew clean build
+  - chmod +x ./gradlew
+  - "./gradlew clean build"
