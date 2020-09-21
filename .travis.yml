@@ -10,5 +10,6 @@ deploy:
   on:
     repo: PiXHULA/testing-travis
   scipt:
+    - travis encrypt 733d9986-78b3-4f96-a82d-636409400e13 --add deploy.api_key --org
     - chmod +x ./gradlew
     - ./gradlew clean build
