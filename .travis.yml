@@ -13,11 +13,7 @@ addons:
   sonarcloud:
     organization: "pixhula"
     token:
-      secure: "**************************"
-env:
-  global:
-    secure: ssRTLO2UtEOOuogvx8fiZYD5YcawdLGGh6mKOgqjAnfeM1g90awrkw9HmrzI4/kfMyvTmAqzq/qdN3kdv9eGRLttBOV69EbHRaWBm9TtK92GPfXiuNaD4QOXW62QT0whloh/IrVOcEy5Mu9KgtSzCX//3nsl2k5TFNWe84t3U7BnN7QNIpApbPM4bFKbAhWPNee5OAJK8U+LZYJAU1zDn2OAy2MFWZW/8yDu/+SYl48yrm39cOZZTulLF9wo0picyHNRLx+LOiBg0H52LVw+ZD11scOq/Is3mSTjeMzJK58hu5sQqIe5ftcOi7BJbFrUwi00Lo1a9vYzvR9oeh5SME8lyclhuroty/i4CqgYqRReEfbyfdvs6Ecfo1pECQ3y+4duu73rVXLt3zVDlLCdrEx8hAFFOVCACodgwBnACNcQP0xOgPtsv0ZUqAuMFSOf103pn7u0cCWVD0Bcny2/fcS4ozQBUFlgUnA72BGa61NCLP7XRiOfnXz9deMg8u3uTv4C3b6v+fh2L6CqVaXe3t1fI0DjnZ0WV9v/uboO0QppNTZrJvv9Xc6UWXlavZ1JXXE9zchaPGMnpPI8SBas4/iZnuwWgb4nDk7XTiQ/smi+TOo22jSrZKVHtbtVTIlM/u2tg4hYDaZidImD1zLVWXywSKmKJ0SqZ976dgLc+1o=
-
+      secure: "BTwf1nc03rIO/F4KJ6KOA4gtDTFHQlYwg1SBidMqT8WQvSaIN9nG0ffqRFazVm7SUnrh3sKhY4zmrWF17nRftwzsgMEs3Kx/+dODOnOPhUifVJpx4B3V2+dqtycTjUD+KR3Ja8yp3vJaWn99prf+SCWP9LrWm55TR5vsS+oqSkFfizjUMhsnb0aFD/h8J11mCBZGt+c+ZVMjoREjAHEpevePEjakgUbaeU3ND99LS6wrpdSJAdzenaU5YCY9PaVz0ZHX2HVJDv/ViMZBDX4+eEmmFuetZ1KIRxVJ0WoBraV+BU4yEQHJkgEF6tkOGhMW+yevPbpVeqgMeLgGP+kE6LajyHN9xQ6FRu3DZ6+dbPOx8Rqha5SdIaPKjCwIovHK5LtJQsbsRiEBVrTSZMVPBa0oX0y+vNieh2IoH3bem0IkQefoz7GZcHtrJqIT0y7gsYVmn4Z7sHGnICWNtXNgjQG5P1kEeLN3ex6AY5cZ64OLR/Y95fT7F6/fZwzxr+jrYHw4ozJrW0owwTj6/JZ5tsYAlqIAJQhtmCAEiV5zjZNKEd6EVuSNB2Qm8jmgaJXCtuOieMOJQGJsOAt+EwdVlCcvdjUSmL2fsTC4y6hJ06CjCOxNQAsONv/a3yyNhOkDz7EV6IHLyfhjDq7J7OWczfnX441dSG7JT/jNicFXG6I="
 script:
   - "chmod +x ./gradlew"
   - "./gradlew clean build"
