@@ -18,3 +18,4 @@ script:
   - "chmod +x ./gradlew"
   - "./gradlew clean build"
   - "./gradlew sonarqube"
+
