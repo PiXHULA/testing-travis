@@ -21,6 +21,10 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "android": {
+      "package": "com.TuristMO.turistmo",
+      "versionCode": 1
     }
   }
 }
