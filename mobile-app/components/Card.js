@@ -1,6 +1,5 @@
 import {FlatList, Image, Text, TouchableOpacity, View, SafeAreaView} from "react-native";
 import React from "react";
-import CardList from "./CardList";
 
 const Card = ({item,index,filteredData,styles}) => {
     return (

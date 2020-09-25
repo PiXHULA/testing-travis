@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {packages} from "../data/data";
-import {FlatList, Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {FlatList, SafeAreaView, StyleSheet, View} from "react-native";
 import {Button, Input} from "react-native-elements";
 import Card from "./Card";
 
