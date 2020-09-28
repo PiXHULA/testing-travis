@@ -12,7 +12,7 @@ const CardList = () => {
         setFilteredData(searchData);
     }
         return (
-            <SafeAreaView>
+            <SafeAreaView style={{flex: 1}}>
                 <Input
                     style={{height: 40}}
                     onChangeText={text => setText(text)}

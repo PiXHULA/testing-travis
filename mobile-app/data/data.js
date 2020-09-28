@@ -41,7 +41,7 @@ export const packages= [
     date:"Saturday 2 May",
     curator:'Alissa McCarthy',
     curatorPicture: "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-    title: "Stockholm culture",
+    title: "Göteborg culture",
     tag: "TRAVEL EAT PARTY",
     city:"Göteborg",
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur distinctio earum esse expedita id is te iure minima molestiae, molestias numquam",
@@ -119,7 +119,7 @@ export const packages= [
         link:"https://play.google.com/store/apps/details?id=com.sl.SLBiljetter&hl=sv"
       }
     ]
-  }
+  },
 ]
 
 
