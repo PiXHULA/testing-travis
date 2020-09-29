@@ -3,113 +3,19 @@ import {packages} from "../data/data";
 import {FlatList, SafeAreaView, StyleSheet, View, Modal, Text, TouchableHighlight} from "react-native";
 import {Button, Input} from "react-native-elements";
 import Card from "./Card";
-import * as Alert from "react-native-web";
 
-const CardList = ({location}) => {
-    const [filteredData, setFilteredData] = useState(packages);
-    const [modalVisible, setModalVisible] = useState(false)
-    if (!location) setModalVisible(true);
 
-    const [text, setText] = useState(location);
-    useEffect(() => {
-        const filter = packages.filter(item => item.city.toLowerCase().startsWith(location.toLowerCase().trim()))
-        setFilteredData(filter);
-    }, [])
-    const searchResult = (searchItem) => {
-        const searchData = packages.filter(item => item.city.toLowerCase().startsWith(searchItem.toLowerCase().trim()))
-        setFilteredData(searchData);
-    }
-    //     return (
-    //     <View style={styles.centeredView}>
-    //         <Modal
-    //             animationType="slide"
-    //             transparent={true}
-    //             visible={modalVisible}
-    //             onRequestClose={() => {
-    //                 Alert.alert('Modal has been closed.');
-    //             }}>
-    //             <View style={styles.centeredView}>
-    //                 <View style={styles.modalView}>
-    //                     <Text style={styles.modalText}>Hello World!</Text>
-    //
-    //                     <TouchableHighlight
-    //                         style={{ ...styles.openButton, backgroundColor: '#2196F3' }}
-    //                         onPress={() => {
-    //                             setModalVisible(!modalVisible);
-    //                         }}>
-    //                         <Text style={styles.textStyle}>Hide Modal</Text>
-    //                     </TouchableHighlight>
-    //                 </View>
-    //             </View>
-    //         </Modal>
-    //
-    //         <TouchableHighlight
-    //             style={styles.openButton}
-    //             onPress={() => {
-    //                 setModalVisible(true);
-    //                 setText('Stockholms län')
-    //             }}>
-    //             <Text style={styles.textStyle}>Stockholm</Text>
-    //         </TouchableHighlight>
-    //         <TouchableHighlight
-    //             style={styles.openButton}
-    //             onPress={() => {
-    //                 setModalVisible(true);
-    //                 setText('Göteborg');
-    //             }}>
-    //             <Text style={styles.textStyle}>Göteborg</Text>
-    //         </TouchableHighlight>
-    //         <TouchableHighlight
-    //             style={styles.openButton}
-    //             onPress={() => {
-    //                 setModalVisible(true);
-    //             }}>
-    //             <Text style={styles.textStyle}>Malmö</Text>
-    //         </TouchableHighlight>
-    //     </View>
-    // );
+const CardList = ({data}) => {
     return (
         <SafeAreaView style={{flex: 1}}>
-            <Modal
-                animationType="slide"
-                transparent={true}
-                visible={modalVisible}
-                onRequestClose={() => {
-                    Alert.alert('Modal has been closed.');
-                }}>
-                <View style={styles.centeredView}>
-                    <View style={styles.modalView}>
-                        <Text style={styles.modalText}>Hello World!</Text>
 
-                        <TouchableHighlight
-                            style={{...styles.openButton, backgroundColor: '#2196F3'}}
-                            onPress={() => {
-                                setModalVisible(!modalVisible);
-                            }}>
-                            <Text style={styles.textStyle}>Hide Modal</Text>
-                        </TouchableHighlight>
-                    </View>
-                </View>
-            </Modal>
-
-            <Input
-                style={{height: 40}}
-                onChangeText={text => setText(text)}
-                placeholder="Search"
-            />
-            <Button
-                title="Search"
-                onPress={() => {
-                    searchResult(text)
-                }}
-            />
             <FlatList
-                data={filteredData}
+                data={data}
                 keyExtractor={(item) => item.id.toString()}
                 showsVerticalScrollIndicator={false}
                 renderItem={({item, index}) => {
                     return <View style={styles.packageContainer}>
-                        <Card item={item} index={index} filteredData={filteredData} styles={styles}/>
+                        <Card item={item} index={index} filteredData={data} styles={styles}/>
                     </View>
 
                 }}

@@ -3,55 +3,59 @@ import {ProgressBarAndroid, SafeAreaView} from 'react-native';
 import CardList from './components/CardList';
 // import GeoLocation from "./components/GeoLocation";
 import * as Location from "expo-location";
+import {packages} from "./data/data";
+import {Button, Input} from "react-native-elements";
 
 const App = () => {
-const [location, setLocation] = useState(null);
-const [errorMsg, setErrorMsg] = useState(null);
-const [region, setRegion] = useState('');
-const [isLoaded, setIsLoaded] = useState(false)
+    const [location, setLocation] = useState(null);
+    const [errorMsg, setErrorMsg] = useState(null);
+    const [data, setData] = useState(packages);
+    const [text, setText] = useState('');
 
-useEffect(() => {
+    const filter = (city) => {
+        const newData = packages.filter(item => item.city.toLowerCase().startsWith(city.toLowerCase().trim()))
+        setData(newData)
+    };
 
-    (async () => {
+    useEffect(() => {
 
-        try {
-            let {status} = await Location.requestPermissionsAsync();
-            if (status !== 'granted') {
-                setRegion('');
-                setErrorMsg('Permission to access location was denied');
+        (async () => {
+
+            try {
+                console.log("Atef")
+                const location = await Location.getCurrentPositionAsync({});
+                const {latitude, longitude} = location.coords;
+                Location.reverseGeocodeAsync({latitude, longitude}).then((resp) => {
+                    const [{region}] = resp;
+                    filter(region)
+                });
+
+            } catch (error) {
+                let status = Location.getProviderStatusAsync()
+                if (!await status.hasServicesEnabledAsync) {
+                    //Customer prompted to change permission or let customer continue to application
+                }
             }
-            const location = await Location.getCurrentPositionAsync({});
-            setLocation(location);
-            const {latitude, longitude} = location.coords;
+        })();
+    }, []);
 
 
-            setIsLoaded(() => Location.hasServicesEnabledAsync())
+    return (
 
-
-            Location.reverseGeocodeAsync({latitude,longitude}).then((resp) => {
-                const [{region}] = resp;
-                setRegion(region)
-            });
-
-        } catch (error) {
-            let status = Location.getProviderStatusAsync()
-            if (!await status.hasServicesEnabledAsync) {
-                //Customer prompted to change permission or let customer continue to application
-            }
-        }
-    })();
-}, []);
-
-
-
-        return (
-
-            <SafeAreaView style={{marginTop: 30, marginHorizontal: 10, flex: 1}}>
-
-                <CardList location={region}/>
-
-            </SafeAreaView>
-        );
-
+        <SafeAreaView style={{marginTop: 30, marginHorizontal: 10, flex: 1}}>
+            <Input
+                style={{height: 40}}
+                onChangeText={text => setText(text)}
+                placeholder="Search"
+            />
+            <Button
+                title="Search"
+                onPress={() => {
+                    filter(text)
+                }}
+            />
+            <CardList data={data}/>
+        </SafeAreaView>
+    );
 }
 export default App;
