@@ -8,7 +8,7 @@ const App = () => {
 const [location, setLocation] = useState(null);
 const [errorMsg, setErrorMsg] = useState(null);
 const [region, setRegion] = useState('');
-const [isLoaded, setIsLoaded] = useState('false')
+const [isLoaded, setIsLoaded] = useState(false)
 
 useEffect(() => {
 
