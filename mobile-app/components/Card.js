@@ -33,7 +33,7 @@ const Card = ({item,index,filteredData,styles}) => {
             <FlatList
                 horizontal
                 showsHorizontalScrollIndicator={false}
-                data={filteredData[index].usefulApplication}
+                data={filteredData  [index].usefulApplication}
                 keyExtractor={item => item.id.toString()}
                 renderItem={({item}) => {
                     return <TouchableOpacity onPress={() => console.log(item.link)}>

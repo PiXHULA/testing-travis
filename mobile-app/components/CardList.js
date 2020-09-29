@@ -4,12 +4,14 @@ import {FlatList, SafeAreaView, StyleSheet, View} from "react-native";
 import {Button, Input} from "react-native-elements";
 import Card from "./Card";
 
-const CardList = () => {
-    const [text, setText] = useState('');
-    const [filteredData, setFilteredData] = useState(packages);
+const CardList = ({location}) => {
+    console.log(location)
+    const [text, setText] = useState(location);
+    const [filteredData, setFilteredData] = useState( () =>
+            packages.filter(item => item.city.toLowerCase().startsWith(location.toLowerCase())));
     const searchResult = (searchItem) => {
-        const searchData = packages.filter(item => item.city.toLowerCase().startsWith(searchItem.toLowerCase()))
-        setFilteredData(searchData);
+       const searchData = packages.filter(item => item.city.toLowerCase().startsWith(searchItem.toLowerCase().trim()))
+       setFilteredData(searchData);
     }
         return (
             <SafeAreaView style={{flex: 1}}>
@@ -20,7 +22,9 @@ const CardList = () => {
                 />
                 <Button
                     title="Search"
-                    onPress={() => searchResult(text)}
+                    onPress={() => {
+                        searchResult(text)
+                    }}
                 />
                 <FlatList
                     data={filteredData}

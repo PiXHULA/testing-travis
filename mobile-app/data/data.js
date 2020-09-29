@@ -6,7 +6,7 @@ export const packages= [
     curatorPicture: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
     title: "Travelling around Stockholm",
     tag: "TRAVEL EAT PARTY",
-    city:"Stockholm",
+    city:"Stockholms län",
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur distinctio earum esse expedita id is te iure minima molestiae, molestias numquam",
     usefulApplication:[
       {
@@ -83,9 +83,9 @@ export const packages= [
     date:"Sunday 2 August",
     curator:'Anders Sjöberg',
     curatorPicture: "https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-    title: "Visit Malmö",
+    title: "Visit Stockholm",
     tag: "TRAVEL EAT PARTY",
-    city:"Malmö",
+    city:"Stockholms län",
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur distinctio earum esse expedita id is te iure minima molestiae, molestias numquam",
     usefulApplication:[
       {
