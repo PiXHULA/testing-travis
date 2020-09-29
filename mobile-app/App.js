@@ -11,7 +11,9 @@ const [region, setRegion] = useState('');
 const [isLoaded, setIsLoaded] = useState('false')
 
 useEffect(() => {
+
     (async () => {
+
         try {
             let {status} = await Location.requestPermissionsAsync();
             if (status !== 'granted') {
@@ -22,11 +24,15 @@ useEffect(() => {
             setLocation(location);
             const {latitude, longitude} = location.coords;
 
+
+            setIsLoaded(() => Location.hasServicesEnabledAsync())
+
+
             Location.reverseGeocodeAsync({latitude,longitude}).then((resp) => {
                 const [{region}] = resp;
                 setRegion(region)
             });
-            setIsLoaded('true');
+
         } catch (error) {
             let status = Location.getProviderStatusAsync()
             if (!await status.hasServicesEnabledAsync) {
@@ -36,6 +42,11 @@ useEffect(() => {
     })();
 }, []);
     let text = 'Waiting..';
+    if(isLoaded){
+        console.log("Service enabled")
+    } else {
+        console.log("Service not enabled")
+    }
     if (errorMsg) {
         text = errorMsg;
     } else if (location) {
@@ -43,10 +54,11 @@ useEffect(() => {
         text = region;
     }
     console.log(text);
-    console.log(isLoaded)
     return (
         <SafeAreaView style={{marginTop: 30, marginHorizontal: 10, flex: 1}}>
+
             <CardList location={region}/>
+
         </SafeAreaView>
     );
 }

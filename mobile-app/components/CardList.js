@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {packages} from "../data/data";
 import {FlatList, SafeAreaView, StyleSheet, View} from "react-native";
 import {Button, Input} from "react-native-elements";
@@ -7,8 +7,11 @@ import Card from "./Card";
 const CardList = ({location}) => {
     console.log(location)
     const [text, setText] = useState(location);
-    const [filteredData, setFilteredData] = useState( () =>
-            packages.filter(item => item.city.toLowerCase().startsWith(location.toLowerCase())));
+    const [filteredData, setFilteredData] = useState(packages);
+    useEffect(()=>{
+        const filter = packages.filter(item => item.city.toLowerCase().startsWith(location.toLowerCase().trim()))
+        setFilteredData(filter);
+    }, [])
     const searchResult = (searchItem) => {
        const searchData = packages.filter(item => item.city.toLowerCase().startsWith(searchItem.toLowerCase().trim()))
        setFilteredData(searchData);
