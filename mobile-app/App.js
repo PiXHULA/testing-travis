@@ -41,25 +41,17 @@ useEffect(() => {
         }
     })();
 }, []);
-    let text = 'Waiting..';
-    if(isLoaded){
-        console.log("Service enabled")
-    } else {
-        console.log("Service not enabled")
-    }
-    if (errorMsg) {
-        text = errorMsg;
-    } else if (location) {
-        //text = JSON.stringify(location);
-        text = region;
-    }
-    console.log(text);
-    return (
-        <SafeAreaView style={{marginTop: 30, marginHorizontal: 10, flex: 1}}>
 
-            <CardList location={region}/>
 
-        </SafeAreaView>
-    );
+
+        return (
+
+            <SafeAreaView style={{marginTop: 30, marginHorizontal: 10, flex: 1}}>
+
+                <CardList location={region}/>
+
+            </SafeAreaView>
+        );
+
 }
 export default App;

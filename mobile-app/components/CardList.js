@@ -5,6 +5,8 @@ import {Button, Input} from "react-native-elements";
 import Card from "./Card";
 
 const CardList = ({location}) => {
+
+    if(!location) return null;
     console.log(location)
     const [text, setText] = useState(location);
     const [filteredData, setFilteredData] = useState(packages);
@@ -16,6 +18,7 @@ const CardList = ({location}) => {
        const searchData = packages.filter(item => item.city.toLowerCase().startsWith(searchItem.toLowerCase().trim()))
        setFilteredData(searchData);
     }
+
         return (
             <SafeAreaView style={{flex: 1}}>
                 <Input
@@ -37,6 +40,7 @@ const CardList = ({location}) => {
                         return <View style={styles.packageContainer}>
                                 <Card item={item} index={index} filteredData={filteredData} styles={styles}/>
                         </View>
+
                     }}
                 />
             </SafeAreaView>
