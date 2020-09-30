@@ -1,7 +1,7 @@
-import {FlatList, Image, Text, TouchableOpacity, View, SafeAreaView} from "react-native";
+import {FlatList, Image, Text, TouchableOpacity, View, SafeAreaView, StyleSheet} from "react-native";
 import React from "react";
 
-const Card = ({item,index,filteredData,styles}) => {
+const Card = ({item,index,filteredData}) => {
     return (
         <SafeAreaView>
         <View style={styles.header}>
@@ -45,5 +45,53 @@ const Card = ({item,index,filteredData,styles}) => {
         </SafeAreaView>
     )
 }
+
+const styles = StyleSheet.create({
+    header: {
+        flexDirection: 'row',
+        justifyContent: 'space-around'
+    },
+    headerDate: {
+        fontSize: 14,
+        fontWeight: '700',
+        color: 'orange',
+        textTransform: 'uppercase',
+        alignSelf: 'flex-end'
+    },
+    headerImage: {
+        marginTop: 10,
+        width: 55,
+        height: 55,
+        borderRadius: 10
+    },
+    headerTitle: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        alignSelf: 'center',
+    },
+    description: {
+        paddingHorizontal: 5,
+        fontSize: 14,
+    },
+    logo: {
+        marginHorizontal: 10,
+        width: 55,
+        height: 55,
+        borderRadius: 10
+    },
+    recApp: {
+        marginVertical: 5,
+        paddingLeft: 10,
+        fontSize: 13,
+        color: 'orange',
+        textTransform: 'uppercase',
+    },
+    centeredView: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 22,
+    },
+})
 
 export default Card;

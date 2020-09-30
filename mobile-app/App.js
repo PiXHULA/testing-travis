@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {ProgressBarAndroid, SafeAreaView} from 'react-native';
+import {SafeAreaView} from 'react-native';
 import CardList from './components/CardList';
 // import GeoLocation from "./components/GeoLocation";
 import * as Location from "expo-location";
@@ -7,8 +7,6 @@ import {packages} from "./data/data";
 import {Button, Input} from "react-native-elements";
 
 const App = () => {
-    const [location, setLocation] = useState(null);
-    const [errorMsg, setErrorMsg] = useState(null);
     const [data, setData] = useState(packages);
     const [text, setText] = useState('');
 
@@ -17,19 +15,14 @@ const App = () => {
         setData(newData)
     };
 
-    useEffect(() => {
-
-        (async () => {
-
+    useEffect(() => {(async () => {
             try {
-                console.log("Atef")
                 const location = await Location.getCurrentPositionAsync({});
                 const {latitude, longitude} = location.coords;
                 Location.reverseGeocodeAsync({latitude, longitude}).then((resp) => {
                     const [{region}] = resp;
                     filter(region)
                 });
-
             } catch (error) {
                 let status = Location.getProviderStatusAsync()
                 if (!await status.hasServicesEnabledAsync) {
@@ -39,9 +32,7 @@ const App = () => {
         })();
     }, []);
 
-
     return (
-
         <SafeAreaView style={{marginTop: 30, marginHorizontal: 10, flex: 1}}>
             <Input
                 style={{height: 40}}
