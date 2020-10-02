@@ -19,7 +19,4 @@ public final class Application {
     private Long Id;
     private String logo;
     private String link;
-    @OneToMany (cascade = CascadeType.PERSIST) //REMOVE // ALL //DETACH //MERGE //PERSIST
-    List<Package> packageList;
-
 }
