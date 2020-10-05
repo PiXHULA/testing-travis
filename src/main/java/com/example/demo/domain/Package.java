@@ -5,10 +5,8 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.format.annotation.DateTimeFormat;
 
-
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 @Entity
@@ -23,18 +21,18 @@ public final class Package {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
-//    @DateTimeFormat(pattern = "E, dd-MM-yyyy")
-//    private LocalDateTime date;
-//    private String curator;
-//    private String curatorPicture;
-//    //@NotBlank(message = "Title should not be blank")
-//    private String title;
-//    //@NotBlank(message = "Tag should not be blank")
-//    private String tag;
-//    //@NotBlank(message = "City should not be blank")
-//    private String city;
-//    //@NotBlank(message = "Description should not be blank")
-//    private String description;
+    @DateTimeFormat(pattern = "E, dd-MM-yyyy")
+    private LocalDateTime date;
+    private String curator;
+    private String curatorPicture;
+    //@NotBlank(message = "Title should not be blank")
+    private String title;
+    //@NotBlank(message = "Tag should not be blank")
+    private String tag;
+    //@NotBlank(message = "City should not be blank")
+    private String city;
+    //@NotBlank(message = "Description should not be blank")
+    private String description;
 
 
     @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.REFRESH}, fetch = FetchType.EAGER)

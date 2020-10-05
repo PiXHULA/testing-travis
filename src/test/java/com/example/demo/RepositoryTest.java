@@ -18,9 +18,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
 public class RepositoryTest {
-    Set<Application> applicationSet1 = new HashSet<>();
-    Set<Application> applicationSet2 = new HashSet<>();
-    Set<Package> packageSet = new HashSet<>();
 
     Application app1 = Application.builder().Id(1L).link("http://1").logo("Logo1").build();
     Application app2 = Application.builder().Id(2L).link("http://2").logo("Logo2").build();
